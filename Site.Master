@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Chata_IS.SiteMaster" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server" >
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    <webopt:BundleReference runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <style type="text/css">
+        .auto-style3 {
+            color: #FFFFFF;
+        }
+        .auto-style5 {
+            width: 344px;
+            float:right;
+            margin-right:80px;
+            height: 22px;
+            margin-left: 0;
+            margin-bottom: 28px;
+        }
+        .auto-style8 {
+            text-align: center;
+        }
+        .auto-style9 {
+            font-size: small;
+        }
+        .auto-style10 {
+            width: 1080px;
+            height: 24px;
+            margin-top: 0;
+        }
+        .auto-style11 {
+            float: right;
+            z-index: 10;
+            height: 66px;
+            margin-top: 143px;
+            width:100%;
+        }
+        .auto-style12 {
+            height: 216px;
+            margin-top: 0px;
+        }
+    </style>
+     
+</head>
+<body id="bd" style="background: #fbe27a url(Images/top.png) no-repeat top left; z-index:-5;  color: black; font: normal 10pt arial; margin: 0px; padding: 0px;">
+    <div id="pageAround" style="width: 1120px; position: relative; top: 0; left: 0; margin: 0 auto;">
+    <form runat="server">
+    <asp:ScriptManager runat="server" EnablePartialRendering="true">
+
+        <Scripts>
+            <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
+            <%--Framework Scripts--%>
+            
+            <asp:ScriptReference Name="MsAjaxBundle" />
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+            <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+            <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+            <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+            <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+            <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+            <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+            <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+            <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+            <asp:ScriptReference Name="WebFormsBundle" />
+            <%--Site Scripts--%>
+
+        </Scripts>
+    </asp:ScriptManager>
+    <header class="auto-style12" >
+        <div id="log" style="margin-right:50px;  vertical-align:top; " class="auto-style11">
+        
+                <section id="login">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                                      <!--          <ul id="logo" style="pointer-events: none; background-color:#a70404; color:white; " class="auto-style6"> -->
+
+                        <a id="loginLink" runat="server" style="z-index:9; background-color:#a70404; color:white; " href="~/Login" ><span class="auto-style9">Přihlášení pro členy svazu</span></a>
+                        
+                  <!--  </ul>  -->
+
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <p>
+                                Přihlášen jako : 
+                                    <asp:LoginName runat="server" CssClass="username" />. <a runat="server" class="username" href="Manage" title="Sekce pro členy"> Sekce pro členy zde. </a>.
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Odhlásit" LogoutPageUrl="~/" onloggedout="LoginStatus_LoggedOut" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+            
+                <nav>
+                    <ul id="menu" style="background-color:#a70404; color:white; " class="auto-style5">
+                        <li><a href="Default"><span class="auto-style3">Domů</span></a></li>
+                        <li><a href="Schedule"><span class="auto-style3">Kalendář rezervací</span></a></li>
+                        <li><a href="Contact"><span class="auto-style3">Kontakt</span></a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+     
+        
+    </header>
+        <div style="background-image:url('Images/top_main.png'); padding-bottom:0;padding-top:0;margin-bottom:0;" class="auto-style10"></div>
+    <div id="body" style="text-align: center;" >
+       <!-- <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" /> -->
+        
+        <section style="    clear: both;    width: 1080px;    background-color: #ffffff;padding-bottom:0;padding-top:0;margin-top:0;margin-bottom:0;">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent"/>
+        </section>
+    </div>
+    <footer>
+        <div style="width:1080px; height:24px; padding-bottom:0;padding-top:0;margin-top:0;margin-bottom:0;">
+            <div class="auto-style10" style="">
+                <p class="auto-style8">&copy; <%: DateTime.Now.Year %> - Jan Urubek</p>
+                
+            </div>
+            </div>
+    </footer>
+    </form>
+        </div>
+</body>
+</html>
